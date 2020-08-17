@@ -12,9 +12,7 @@
 | first_name            | string | null: false |
 | last_name_reading     | string | null: false |
 | first_name_reading    | string | null: false |
-| birth_year            | string | null: false |
-| birth_month           | string | null: false |
-| birth_day             | string | null: false |
+| birthday              | date   | null: false |
 
 ### Association
 
@@ -23,17 +21,17 @@
 
 ## items テーブル
 
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| name      | string     | null: false                    |
-| text      | string     | null: false                    |
-| category  | string     | null: false                    |
-| condition | string     | null: false                    |
-| postage   | string     | null: false                    |
-| ship_from | string     | null: false                    |
-| ship_date | string     | null: false                    |
-| price     | integer    | null: false                    |
-| user      | references | null: false, foreign_key: true |
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| name         | string     | null: false                    |
+| text         | text       | null: false                    |
+| category     | integer    | null: false                    |
+| condition    | integer    | null: false                    |
+| postage      | integer    | null: false                    |
+| ship_from    | integer    | null: false                    |
+| ship_date    | integer    | null: false                    |
+| price        | integer    | null: false                    |
+| user         | references | null: false, foreign_key: true |
 
 ### Association
 
