@@ -32,27 +32,27 @@ RSpec.describe Item, type: :model do
       it 'category_idが1(---)だと保存できない' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be other than 1")
+        expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
       it 'condition_idが1(---)だと保存できない' do
         @item.condition_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Condition must be other than 1")
+        expect(@item.errors.full_messages).to include('Condition must be other than 1')
       end
       it 'postage_idが1(---)だと保存できない' do
         @item.postage_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Postage must be other than 1")
+        expect(@item.errors.full_messages).to include('Postage must be other than 1')
       end
       it 'ship_from_idが1(---)だと保存できない' do
         @item.ship_from_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Ship from must be other than 1")
+        expect(@item.errors.full_messages).to include('Ship from must be other than 1')
       end
       it 'ship_date_idが1(---)だと保存できない' do
         @item.ship_date_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Ship date must be other than 1")
+        expect(@item.errors.full_messages).to include('Ship date must be other than 1')
       end
       it 'priceが存在していないと保存できない' do
         @item.price = nil
@@ -62,19 +62,13 @@ RSpec.describe Item, type: :model do
       it 'priceが299以下だと保存できない' do
         @item.price = 299
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is out of setting range")
+        expect(@item.errors.full_messages).to include('Price is out of setting range')
       end
       it 'priceが10000000以上だと保存できない' do
-        @item.price = 10000000
+        @item.price = 10_000_000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is out of setting range")
+        expect(@item.errors.full_messages).to include('Price is out of setting range')
       end
     end
   end
-
-
-
-
-
-
 end
