@@ -1,5 +1,5 @@
 function info() {
-
+  
   const price = document.getElementById("item-price");
 
   price.addEventListener("input", (e) => {
