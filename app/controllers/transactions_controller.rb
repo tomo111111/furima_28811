@@ -3,6 +3,7 @@ class TransactionsController < ApplicationController
 
 
   def index
+    @transaction = Transaction.new
     @item = Item.find(params[:item_id])
     if current_user.id == @item.user_id || @item.contract
       redirect_to root_path
