@@ -23,6 +23,7 @@ class TransactionsController < ApplicationController
       @transaction.save
       redirect_to root_path
     else
+
       render 'index'
     end
   end
@@ -30,7 +31,7 @@ class TransactionsController < ApplicationController
   private
 
   def transaction_params
-    params.permit(:postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number,:item_id,:token).merge(user_id:current_user.id)
+    params.require(:transaction).permit(:postal_code, :prefecture_id, :city, :house_number, :building_name, :phone_number,:item_id,:token).merge(user_id:current_user.id)
   end
 
   def pay_item
