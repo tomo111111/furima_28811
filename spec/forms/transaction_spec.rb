@@ -24,42 +24,42 @@ RSpec.describe Transaction, type: :model do
       it 'tokenの値が送られてきていないと購入できない' do
         @transaction.token = nil
         @transaction.valid?
-        expect(@transaction.errors.full_messages).to include("Token can't be blank")
+        expect(@transaction.errors.full_messages).to include("クレジットカード情報を入力してください")
       end
       it 'postal_codeが空だと保存できない' do
         @transaction.postal_code = nil
         @transaction.valid?
-        expect(@transaction.errors.full_messages).to include("Postal code can't be blank")
+        expect(@transaction.errors.full_messages).to include("郵便番号を入力してください")
       end
       it 'postal_codeは***-****（*は数字、ハイフンは4文字目）の形式でないと保存できない' do
         @transaction.postal_code = '1234-567'
         @transaction.valid?
-        expect(@transaction.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
+        expect(@transaction.errors.full_messages).to include('郵便番号は無効です。***-****の形式で入力してください')
       end
       it 'prefecture_idが1(---)だと保存できない' do
         @transaction.prefecture_id = 1
         @transaction.valid?
-        expect(@transaction.errors.full_messages).to include('Prefecture must be other than 1')
+        expect(@transaction.errors.full_messages).to include('都道府県を選択してください')
       end
       it 'cityが空だと保存できない' do
         @transaction.city = nil
         @transaction.valid?
-        expect(@transaction.errors.full_messages).to include("City can't be blank")
+        expect(@transaction.errors.full_messages).to include("市区町村を入力してください")
       end
       it 'house_numberが空だと保存できない' do
         @transaction.house_number = nil
         @transaction.valid?
-        expect(@transaction.errors.full_messages).to include("House number can't be blank")
+        expect(@transaction.errors.full_messages).to include("番地を入力してください")
       end
       it 'phone_numberが空だと保存できない' do
         @transaction.phone_number = nil
         @transaction.valid?
-        expect(@transaction.errors.full_messages).to include("Phone number can't be blank")
+        expect(@transaction.errors.full_messages).to include("電話番号を入力してください")
       end
       it 'phone_numberはハイフンなしの11桁でないと保存できない' do
         @transaction.phone_number = '123456789'
         @transaction.valid?
-        expect(@transaction.errors.full_messages).to include('Phone number is invalid')
+        expect(@transaction.errors.full_messages).to include('電話番号は不正な値です')
       end
     end
   end

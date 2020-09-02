@@ -13,11 +13,11 @@ class Item < ApplicationRecord
     validates :image
     validates :name
     validates :text
-    validates :category_id, numericality: { other_than: 1 }
-    validates :condition_id, numericality: { other_than: 1 }
-    validates :postage_id, numericality: { other_than: 1 }
-    validates :ship_from_id, numericality: { other_than: 1 }
-    validates :ship_date_id, numericality: { other_than: 1 }
-    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'is out of setting range' }
+    validates :category_id, numericality: { other_than: 1,message:'を選択してください' }
+    validates :condition_id, numericality: { other_than: 1,message:'を選択してください' }
+    validates :postage_id, numericality: { other_than: 1,message:'を選択してください' }
+    validates :ship_from_id, numericality: { other_than: 1,message:'を選択してください' }
+    validates :ship_date_id, numericality: { other_than: 1,message:'を選択してください' }
+    validates :price, numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'は無効です。設定された範囲外です' }
   end
 end

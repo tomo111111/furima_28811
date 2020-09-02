@@ -14,13 +14,12 @@ class TransactionsController < ApplicationController
   def create
     @transaction = Transaction.new(transaction_params)
     @item = Item.find(params[:item_id])
-
+    
     if @transaction.valid?
       pay_item
       @transaction.save
       redirect_to root_path
     else
-
       render 'index'
     end
   end
